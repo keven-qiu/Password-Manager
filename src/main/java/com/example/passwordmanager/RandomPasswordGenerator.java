@@ -38,7 +38,7 @@ public class RandomPasswordGenerator {
     private void createRandomPassword() {
         StringBuilder stringBuilder = new StringBuilder(password);
         for (int i = 0; i < length; ++i)
-            stringBuilder.append(characters.charAt(random.nextInt(length)));
+            stringBuilder.append(characters.charAt(random.nextInt(characters.length())));
         password = stringBuilder.toString();
     }
 
