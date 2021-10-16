@@ -1,17 +1,14 @@
-import com.example.passwordmanager.RandomPasswordGenerator;
+package com.example.passwordmanager;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.util.Random;
-
 class RandomPasswordGeneratorTest {
     private RandomPasswordGenerator generator;
-    private Random random;
 
     @org.junit.jupiter.api.BeforeEach
     void setUp() {
         generator = new RandomPasswordGenerator();
-        random = new Random();
     }
 
     @Test
