@@ -16,10 +16,6 @@ public class RandomPasswordGenerator {
     public static String upperCaseCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     public static String numbers = "0123456789";
     public static String specialCharacters = "(,._-*~\\\"<>/|!@#$%^&)+='";
-    /* ASCII VALUES */
-    // numbers: 48-57
-    // lowercase: 97-122
-    // uppercase: 65-90
 
     public RandomPasswordGenerator() {
         assignMemberVariables(0, false, false, false, false);
