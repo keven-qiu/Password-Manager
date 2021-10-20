@@ -38,27 +38,21 @@ public class RandomPasswordGenerator {
         password = stringBuilder.toString();
     }
 
-    public String getPassword(int length, boolean lowerAlpha,
-        boolean upperAlpha, boolean numeric, boolean special) {
-        try {
-            assignMemberVariables(length, lowerAlpha, upperAlpha, numeric,
-                special);
-            createRandomPassword();
-            return password;
-        } catch (IllegalArgumentException e) {
-            System.out.println("Argument must be positive.");
-            return e.getMessage();
-        }
+    public String getPassword(int len, boolean lower,
+        boolean upper, boolean number, boolean spec) {
+        assignMemberVariables(len, lower, upper, number, spec);
+        createRandomPassword();
+        return password;
     }
 
-    private void assignMemberVariables(int length, boolean lowerAlpha,
-        boolean upperAlpha, boolean numeric, boolean special) {
+    private void assignMemberVariables(int len, boolean lower,
+        boolean upper, boolean number, boolean spec) {
         this.password = "";
-        this.length = length;
-        this.lowerAlpha = lowerAlpha;
-        this.upperAlpha = upperAlpha;
-        this.numeric = numeric;
-        this.special = special;
+        this.length = len;
+        this.lowerAlpha = lower;
+        this.upperAlpha = upper;
+        this.numeric = number;
+        this.special = spec;
         this.characters = createAvailableCharacters();
     }
 }

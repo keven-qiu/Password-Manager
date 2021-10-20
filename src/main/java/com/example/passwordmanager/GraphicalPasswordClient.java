@@ -28,7 +28,7 @@ public class GraphicalPasswordClient {
         grid.setVgap(10);
         grid.setPadding(new Insets(25, 25, 25, 25));
 
-        Text sceneTitle = new Text("Save passwords");
+        Text sceneTitle = new Text("Password Manager");
         sceneTitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
         grid.add(sceneTitle, 0, 0, 2, 1);
 
