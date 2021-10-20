@@ -40,9 +40,15 @@ public class RandomPasswordGenerator {
 
     public String getPassword(int length, boolean lowerAlpha,
         boolean upperAlpha, boolean numeric, boolean special) {
-        assignMemberVariables(length, lowerAlpha, upperAlpha, numeric, special);
-        createRandomPassword();
-        return password;
+        try {
+            assignMemberVariables(length, lowerAlpha, upperAlpha, numeric,
+                special);
+            createRandomPassword();
+            return password;
+        } catch (IllegalArgumentException e) {
+            System.out.println("Argument must be positive.");
+            return e.getMessage();
+        }
     }
 
     private void assignMemberVariables(int length, boolean lowerAlpha,

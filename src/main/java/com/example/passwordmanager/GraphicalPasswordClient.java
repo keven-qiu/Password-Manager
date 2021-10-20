@@ -67,7 +67,6 @@ public class GraphicalPasswordClient {
         hBox.getChildren().addAll(clearBtn, generateBtn, saveBtn);
         grid.add(hBox, 1, 4);
 
-
         actionTarget = new Text();
         grid.add(actionTarget, 1, 6);
     }
