@@ -2,6 +2,7 @@ package com.example.passwordmanager;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.input.Clipboard;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
@@ -9,16 +10,19 @@ public class PasswordManager extends Application {
     @Override
     public void start(Stage stage) {
         stage.setTitle("Password Manager");
+
         GraphicalPasswordClient gpc = new GraphicalPasswordClient();
+        RandomPasswordGenerator rpg = new RandomPasswordGenerator();
+        Clipboard clipboard = Clipboard.getSystemClipboard();
 
         gpc.getSaveBtn().setOnAction(actionEvent -> {
-            // saving credentials
+            // saving credentials, use JSON
             gpc.getActionTarget().setFill(Color.FIREBRICK);
             gpc.getActionTarget().setText("Password saved");
         });
 
         gpc.getGenerateBtn().setOnAction(actionEvent -> {
-            // generating random password
+            PopupClient.display(stage, rpg, gpc, clipboard);
         });
 
         gpc.getClearBtn().setOnAction(actionEvent -> {

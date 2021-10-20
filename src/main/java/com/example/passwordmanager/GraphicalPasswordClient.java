@@ -28,7 +28,7 @@ public class GraphicalPasswordClient {
         grid.setVgap(10);
         grid.setPadding(new Insets(25, 25, 25, 25));
 
-        Text sceneTitle = new Text("Save passwords");
+        Text sceneTitle = new Text("Password Manager");
         sceneTitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
         grid.add(sceneTitle, 0, 0, 2, 1);
 
@@ -66,7 +66,6 @@ public class GraphicalPasswordClient {
         hBox.setAlignment(Pos.BOTTOM_CENTER);
         hBox.getChildren().addAll(clearBtn, generateBtn, saveBtn);
         grid.add(hBox, 1, 4);
-
 
         actionTarget = new Text();
         grid.add(actionTarget, 1, 6);
