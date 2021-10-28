@@ -11,6 +11,8 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 
+import java.util.Objects;
+
 public class GraphicalPasswordClient {
     private final GridPane grid;
     private final TextField websiteTF;
@@ -105,10 +107,6 @@ public class GraphicalPasswordClient {
         return passwordTF.getText();
     }
 
-    public void setWebsiteTF(String text) {
-        websiteTF.setText(text);
-    }
-
     public void setUsernameTF(String text) {
         usernameTF.setText(text);
     }
@@ -119,5 +117,9 @@ public class GraphicalPasswordClient {
 
     public Text getActionTarget() {
         return actionTarget;
+    }
+
+    public boolean isAnyFieldEmpty() {
+        return Objects.equals(websiteTF.getText(), "") || Objects.equals(usernameTF.getText(), "") || Objects.equals(passwordTF.getText(), "");
     }
 }

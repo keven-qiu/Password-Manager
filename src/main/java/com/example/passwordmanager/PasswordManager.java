@@ -5,6 +5,7 @@ import javafx.scene.Scene;
 import javafx.scene.input.Clipboard;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.util.Pair;
 
 public class PasswordManager extends Application {
     @Override
@@ -16,9 +17,18 @@ public class PasswordManager extends Application {
         Clipboard clipboard = Clipboard.getSystemClipboard();
 
         gpc.getSaveBtn().setOnAction(actionEvent -> {
-            // saving credentials, use JSON
             gpc.getActionTarget().setFill(Color.FIREBRICK);
-            gpc.getActionTarget().setText("Password saved");
+            if (gpc.isAnyFieldEmpty()) {
+                Pair<String, String> textLabelFields =
+                    PasswordReaderWriter.readFile(gpc.getWebsite());
+                gpc.setUsernameTF(textLabelFields.getKey());
+                gpc.setPasswordTF(textLabelFields.getValue());
+            } else {
+                PasswordReaderWriter.writeFile(gpc.getWebsite(),
+                    gpc.getUsername(),
+                    gpc.getPassword());
+                gpc.getActionTarget().setText("Password saved");
+            }
         });
 
         gpc.getGenerateBtn().setOnAction(actionEvent -> {
